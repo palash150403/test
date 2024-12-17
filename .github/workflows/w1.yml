@@ -36,7 +36,6 @@ jobs:
             echo "APP_VERSION=$VERSION" >> $GITHUB_ENV
           elif [[ "${{ github.ref }}" == "refs/head/main" ]]; then
             # Example command to get the app version
-            VERSION=$(cat version.txt)  # or any other method to retrieve app version
             echo "App Version: $VERSION"
             echo "app version: $VERSION"
             echo "APP_VERSION=$VERSION" >> $GITHUB_ENV
