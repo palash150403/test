@@ -15,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     needs: first-workflow
     steps:
-      - run: echo ${{ needs.first-workflow.outputs.MY_VARIABLE }}
+      - run: "echo MY_VARIABLE = ${{ needs.first-workflow.outputs.MY_VARIABLE }} >> GITHUB_ENV"
