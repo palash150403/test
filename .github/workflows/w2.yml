@@ -1,4 +1,3 @@
-# .github/workflows/w2.yml
 name: Reusable Workflow 2
 
 on:
