@@ -2,11 +2,6 @@ name: Reusable Workflow 1
 
 on:
   workflow_call:
-    inputs:
-      some_input:
-        required: true
-        type: string
-
     outputs:
       MY_VARIABLE:
         value: ${{ jobs.set-output.outputs.MY_VARIABLE }}

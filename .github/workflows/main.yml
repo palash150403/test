@@ -1,4 +1,3 @@
-# .github/workflows/main.yml
 name: Main Workflow
 
 on:
@@ -9,8 +8,6 @@ on:
 jobs:
   first-workflow:
     uses: palash150403/test/.github/workflows/w1.yml@main
-    with:
-      some_input: "value_for_first_workflow"
 
   second-workflow:
     needs: first-workflow
