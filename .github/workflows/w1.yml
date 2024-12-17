@@ -1,21 +1,45 @@
-# w1.yml (Reusable Workflow 1)
-name: Reusable Workflow 1
+name: Workflow 1 - Generate Environment Variable
 
 on:
   workflow_call:
     inputs:
-      some_input:
+      example_input:
         required: true
         type: string
 
 jobs:
-  set-output:
+  generate-env:
     runs-on: ubuntu-latest
     outputs:
-      my_output: ${{ steps.set_output.outputs.value }}  # Capture output from the step
-
+      my_env_variable: ${{ steps.set-env.outputs.my_env_variable }}
     steps:
-      - name: Set output value
-        id: set_output
+      - name: Set an environment variable
+        id: set-env
         run: |
-          echo "value=some_generated_value" >> $GITHUB_OUTPUT  # Set the output value
+          echo "MY_ENV_VAR=HelloWorld" >> $GITHUB_ENV
+          echo "::set-output name=my_env_variable::HelloWorld"
+
+
+
+
+# # w1.yml (Reusable Workflow 1)
+# name: Reusable Workflow 1
+
+# on:
+#   workflow_call:
+#     inputs:
+#       some_input:
+#         required: true
+#         type: string
+
+# jobs:
+#   set-output:
+#     runs-on: ubuntu-latest
+#     outputs:
+#       my_output: ${{ steps.set_output.outputs.value }}  # Capture output from the step
+
+#     steps:
+#       - name: Set output value
+#         id: set_output
+#         run: |
+#           echo "value=some_generated_value" >> $GITHUB_OUTPUT  # Set the output value
