@@ -1,23 +1,24 @@
-name: Workflow 1 - Generate Environment Variable
+name: Reusable Workflow 1
 
 on:
   workflow_call:
     inputs:
-      example_input:
+      some_input:
         required: true
         type: string
 
 jobs:
-  generate-env:
+  set-environment-variable:
     runs-on: ubuntu-latest
-    outputs:
-      my_env_variable: ${{ steps.set-env.outputs.my_env_variable }}
     steps:
-      - name: Set an environment variable
-        id: set-env
+      - name: Set a variable in GITHUB_ENV
+        run: echo "MY_VARIABLE=some_value" >> $GITHUB_ENV
+
+      - name: Other steps
         run: |
-          echo "MY_ENV_VAR=HelloWorld" >> $GITHUB_ENV
-          echo "::set-output name=my_env_variable::HelloWorld"
+          echo "Running additional steps"
+
+
 
 
 

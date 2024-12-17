@@ -1,19 +1,20 @@
-name: Workflow 2 - Use Environment Variable
+name: Reusable Workflow 2
 
 on:
   workflow_call:
     inputs:
-      my_env_variable:
+      some_input:
         required: true
         type: string
 
 jobs:
-  use-env:
+  use-environment-variable:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the Environment Variable
-        run: |
-          echo "The environment variable from Workflow 1 is: ${{ inputs.my_env_variable }}"
+      - name: Access environment variable
+        run: echo "The value of MY_VARIABLE is $MY_VARIABLE"
+
+
 
 
 # # w2.yml (Reusable Workflow 2)

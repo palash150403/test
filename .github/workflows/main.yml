@@ -6,24 +6,17 @@ on:
       - main
 
 jobs:
-  call-workflow-1:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call Workflow 1 to generate the environment variable
-        id: workflow1
-        uses: palash150403/test/.github/workflows/w1.yml@main
-        with:
-          example_input: "Some input value"
+  first-workflow:
+    uses: palash150403/test/.github/workflows/w1.yml@main
+    with:
+      some_input: "value_for_first_workflow"
 
-  call-workflow-2:
-    runs-on: ubuntu-latest
-    needs: call-workflow-1
-    steps:
-      - name: Call Workflow 2 and pass the environment variable from Workflow 1
-        id: workflow2
-        uses: palash150403/test/.github/workflows/w2.yml@main
-        with:
-          my_env_variable: ${{ needs.call-workflow-1.outputs.my_env_variable }}
+  second-workflow:
+    needs: first-workflow
+    uses: palash150403/test/.github/workflows/w2.yml@main
+    with:
+      some_input: "value_for_second_workflow"
+
 
 
 # # main.yml (Main Workflow)
