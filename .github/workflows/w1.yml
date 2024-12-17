@@ -7,11 +7,18 @@ on:
         required: true
         type: string
 
+    outputs:
+      MY_VARIABLE:
+        value: ${{ jobs.set-output.outputs.MY_VARIABLE }}
+        
+
 jobs:
   set-output:
     runs-on: ubuntu-latest
+    outputs:
+      MY_VARIABLE: ${{ steps.set_output.outputs.MY_VARIABLE }}
     steps:
-      - name: Save output to GitHub's output file
+      - name: Set output using GITHUB_OUTPUT
         id: set_output
         run: echo "MY_VARIABLE=some_value" >> $GITHUB_OUTPUT
           
