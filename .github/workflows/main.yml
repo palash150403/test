@@ -8,12 +8,12 @@ on:
 
 jobs:
   call-workflow-1:
-    uses: ./github/w1.yml@main
+    uses: ./github/workflows/w1.yml@main
     with:
       some_input: "input_value"
 
   call-workflow-2:
-    uses: ./github/w2.yml@main
+    uses: ./github/workflows/w2.yml@main
     with:
       some_input: "input_value"
     needs: call-workflow-1  # This ensures workflow-1 is completed before calling workflow-2
