@@ -19,3 +19,11 @@ jobs:
           
       - name: Debug - Check the output
         run: echo "The output MY_VARIABLE is ${{ steps.set_output.outputs.MY_VARIABLE }}"
+
+
+      - name: app_version
+        shell: bash
+        run: |
+          app_version=1.1.1
+          echo "$app_version"
+
