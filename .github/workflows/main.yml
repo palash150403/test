@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Call Workflow 1 to generate the environment variable
         id: workflow1
-        uses: ./workflow-1.yml  # Path to your reusable Workflow 1
+        uses: palash150403/test/.github/workflows/w1.yml@main
         with:
           example_input: "Some input value"
 
@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Call Workflow 2 and pass the environment variable from Workflow 1
         id: workflow2
-        uses: ./workflow-2.yml  # Path to your reusable Workflow 2
+        uses: palash150403/test/.github/workflows/w2.yml@main
         with:
           my_env_variable: ${{ needs.call-workflow-1.outputs.my_env_variable }}
 
