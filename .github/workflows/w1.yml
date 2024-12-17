@@ -38,6 +38,7 @@ jobs:
             # Example command to get the app version
             VERSION=$(cat version.txt)  # or any other method to retrieve app version
             echo "App Version: $VERSION"
+            echo "app version: $VERSION"
             echo "APP_VERSION=$VERSION" >> $GITHUB_ENV
           else
             echo "Branch not relevant for versioning."
