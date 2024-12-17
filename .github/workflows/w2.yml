@@ -10,7 +10,6 @@ on:
 jobs:
   use-output:
     runs-on: ubuntu-latest
-    needs: workflow-1  # Ensure workflow-1 is completed before running
     steps:
       - name: Use output from workflow-1
         run: |
