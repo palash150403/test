@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Save output to GitHub's output file
+        id: set_output
         run: echo "MY_VARIABLE=some_value" >> $GITHUB_OUTPUT
-
+          
       - name: Debug - Check the output
-        run: echo "The output MY_VARIABLE is $MY_VARIABLE"
+        run: echo "The output MY_VARIABLE is ${{ steps.set_output.outputs.MY_VARIABLE }}"
