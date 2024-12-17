@@ -16,25 +16,4 @@ jobs:
     uses: palash150403/test/.github/workflows/w2.yml@main
     with:
       some_input: "value_for_second_workflow"
-
-
-
-# # main.yml (Main Workflow)
-# name: Main Workflow
-
-# on:
-#   push:
-#     branches:
-#       - main
-
-# jobs:
-#   call-workflow-1:
-#     uses: palash150403/test/.github/workflows/w1.yml@main
-#     with:
-#       some_input: "input_value"
-  
-#   call-workflow-2:
-#     needs: call-workflow-1  # Ensure this runs after call-workflow-1
-#     uses: palash150403/test/.github/workflows/w2.yml@main
-#     with:
-#       some_input: ${{ needs.call-workflow-1.outputs.my_output }}  # Pass output from w1 to w2
+      MY_VARIABLE: ${{ needs.first-workflow.outputs.MY_VARIABLE }}

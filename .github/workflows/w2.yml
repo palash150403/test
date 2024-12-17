@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use the output from the first workflow
-        run: echo "The value of MY_VARIABLE is ${{ needs.first-workflow.outputs.MY_VARIABLE }}"
+        run: echo "The value of MY_VARIABLE is ${{ inputs.MY_VARIABLE }}"
