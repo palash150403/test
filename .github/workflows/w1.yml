@@ -28,11 +28,11 @@ jobs:
           BRANCH_NAME="${{ github.ref }}"
           BRANCH_NAME="${BRANCH_NAME##*/}"
           
-          if [[ "${{ github.ref }}" == "refs/head/integration" || "${{ github.ref }}" == "refs/head/feature"* ]]; then
+          if [[ "${{ github.ref }}" == "refs/heads/integration" || "${{ github.ref }}" == "refs/headsfeature"* ]]; then
             # Example command to get the app version
             echo "VERSION $app_version"
             echo "VERSION=$app_version" >> $GITHUB_ENV
-          elif [[ "${{ github.ref }}" == "refs/head/main" ]]; then
+          elif [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
             echo "VERSION $app_version"
             echo "VERSION=$app_version" >> $GITHUB_ENV
           else
