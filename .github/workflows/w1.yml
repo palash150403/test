@@ -34,7 +34,7 @@ jobs:
               ;;
           "refs/heads/main")
               # Matches "refs/heads/main"
-              echo "VERSION $app_version"
+              echo "VERSION_main $app_version"
               echo "VERSION=$app_version" >> $GITHUB_ENV
               ;;
           *)
