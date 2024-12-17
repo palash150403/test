@@ -11,5 +11,5 @@ jobs:
   print-variable:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the passed value of MY_VARIABLE
-        run: echo "The value of MY_VARIABLE is ${{ inputs.MY_VARIABLE }}"
+    - name: Print the passed value of MY_VARIABLE
+      run: echo "The value of MY_VARIABLE is ${{ inputs.MY_VARIABLE }}"
