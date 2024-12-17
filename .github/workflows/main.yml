@@ -13,10 +13,7 @@ jobs:
       some_input: "value_for_first_workflow"
 
   second-workflow:
-    runs-on: ubuntu-latest
     needs: first-workflow
-    steps:
-      - name: Call second reusable workflow (w2.yml)
-        uses: palash150403/test/.github/workflows/w2.yml@main
-        with:
-          MY_VARIABLE: ${{ needs.first-workflow.outputs.MY_VARIABLE }}
+    uses: palash150403/test/.github/workflows/w2.yml@main
+    with:
+        MY_VARIABLE: ${{ needs.first-workflow.outputs.MY_VARIABLE }}
