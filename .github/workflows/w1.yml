@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Set output using GITHUB_OUTPUT
         id: set_output
-        run: echo "MY_VARIABLE=some_value" >> $GITHUB_OUTPUT
+        run: echo "MY_VARIABLE=wf1-val" >> $GITHUB_OUTPUT
           
       - name: Debug - Check the output
         run: echo "The output MY_VARIABLE is ${{ steps.set_output.outputs.MY_VARIABLE }}"
