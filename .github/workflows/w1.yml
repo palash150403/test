@@ -25,20 +25,16 @@ jobs:
         shell: bash
         run: |
           app_version=1.1.1
-          echo "$app_version"
           BRANCH_NAME="${{ github.ref }}"
           BRANCH_NAME="${BRANCH_NAME##*/}"
           
           if [[ "${{ github.ref }}" == "refs/head/integration" || "${{ github.ref }}" == "refs/head/feature"* ]]; then
             # Example command to get the app version
-            VERSION=$(cat version.txt)  # or any other method to retrieve app version
-            echo "App Version: $VERSION"
-            echo "APP_VERSION=$VERSION" >> $GITHUB_ENV
+            echo "VERSION $app_version"
+            echo "VERSION=$app_version" >> $GITHUB_ENV
           elif [[ "${{ github.ref }}" == "refs/head/main" ]]; then
-            # Example command to get the app version
-            echo "App Version: $VERSION"
-            echo "app version: $VERSION"
-            echo "APP_VERSION=$VERSION" >> $GITHUB_ENV
+            echo "VERSION $app_version"
+            echo "VERSION=$app_version" >> $GITHUB_ENV
           else
             echo "Branch not relevant for versioning."
           fi
