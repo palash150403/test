@@ -1,15 +1,16 @@
+# .github/workflows/w2.yml
 name: Reusable Workflow 2
 
 on:
   workflow_call:
     inputs:
-      some_input:
+      MY_VARIABLE:
         required: true
         type: string
 
 jobs:
-  use-output:
+  print-variable:
     runs-on: ubuntu-latest
     steps:
-      - name: Use the output from the first workflow
+      - name: Print the passed value of MY_VARIABLE
         run: echo "The value of MY_VARIABLE is ${{ inputs.MY_VARIABLE }}"
