@@ -1,0 +1,21 @@
+# workflow-1.yml
+name: Reusable Workflow 1
+
+on:
+  workflow_call:
+    inputs:
+      some_input:
+        required: true
+        type: string
+
+jobs:
+  set-output:
+    runs-on: ubuntu-latest
+    outputs:
+      my_output: ${{ steps.set_output.outputs.value }}
+
+    steps:
+      - name: Set output value
+        id: set_output
+        run: |
+          echo "value=some_generated_value" >> $GITHUB_OUTPUT

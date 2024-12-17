@@ -1,0 +1,19 @@
+# main.yml
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-workflow-1:
+    uses: ./workflow-1.yml
+    with:
+      some_input: "input_value"
+
+  call-workflow-2:
+    uses: ./workflow-2.yml
+    with:
+      some_input: "input_value"
+    needs: call-workflow-1  # This ensures workflow-1 is completed before calling workflow-2
