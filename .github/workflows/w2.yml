@@ -1,3 +1,4 @@
+# w2.yml (Reusable Workflow 2)
 name: Reusable Workflow 2
 
 on:
@@ -11,6 +12,6 @@ jobs:
   use-output:
     runs-on: ubuntu-latest
     steps:
-      - name: Use output from workflow-1
+      - name: Use input from workflow-1
         run: |
-          echo "Received value from workflow-1: ${{ needs.workflow-1.outputs.my_output }}"
+          echo "Received value from workflow-1: ${{ inputs.some_input }}"

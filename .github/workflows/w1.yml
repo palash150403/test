@@ -1,4 +1,4 @@
-# workflow-1.yml
+# w1.yml (Reusable Workflow 1)
 name: Reusable Workflow 1
 
 on:
@@ -12,10 +12,10 @@ jobs:
   set-output:
     runs-on: ubuntu-latest
     outputs:
-      my_output: ${{ steps.set_output.outputs.value }}
+      my_output: ${{ steps.set_output.outputs.value }}  # Capture output from the step
 
     steps:
       - name: Set output value
         id: set_output
         run: |
-          echo "value=some_generated_value" >> $GITHUB_OUTPUT
+          echo "value=some_generated_value" >> $GITHUB_OUTPUT  # Set the output value
