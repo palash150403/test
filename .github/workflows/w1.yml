@@ -24,14 +24,22 @@ jobs:
       - name: app_version
         shell: bash
         run: |
-          app_version="1.1.1"          
-          if [[ "${{ github.ref }}" == "refs/heads/integration" || "${{ github.ref }}" == refs/heads/feature* ]]; then
-            echo "VERSION $app_version"
-            echo "VERSION=$app_version" >> $GITHUB_ENV
-          elif [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "VERSION $app_version"
-            echo "VERSION=$app_version" >> $GITHUB_ENV
-          else
-            echo "Branch not relevant for versioning."
-          fi
+          app_version="1.1.1"
+          
+          case "${{ github.ref }}" in
+          "refs/heads/integration" | refs/heads/feature*)
+              # Matches "refs/heads/integration" or any branch starting with "refs/heads/feature"
+              echo "VERSION $app_version"
+              echo "VERSION=$app_version" >> $GITHUB_ENV
+              ;;
+          "refs/heads/main")
+              # Matches "refs/heads/main"
+              echo "VERSION $app_version"
+              echo "VERSION=$app_version" >> $GITHUB_ENV
+              ;;
+          *)
+              # If none of the above matches
+              echo "Branch not relevant for versioning."
+              ;;
+          esac
       
